@@ -8,7 +8,7 @@
     noise = 3000 * np.random.randn(len(samples))
     samples = list(np.array(samples) + noise)
     cut_samples_1 = sample_array(samples, 5)
-其平均噪音幅度/平均纯音幅度比值为3：10。
+其平均噪音幅度/平均纯音幅度比值为3:10
 
 ### 2、test2.wav 文件采用手机外放一段人声视频，模拟加入噪音后的人声。时长 20.0s。
 ## 二、FFT频谱近似计算
