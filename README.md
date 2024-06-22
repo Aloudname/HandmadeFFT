@@ -81,27 +81,27 @@ plot_fft方法实现了对单侧频谱的绘制。
 
 ## 三、频谱结果误差分析
 ### 1、矩形方波
-<div style="text-align: center;">
-  <img src="figure/1.png" alt="Your Image">
+<div align=center>
+  <img src="https://github.com/Aloudname/HandmadeFFT/blob/main/figure/1.png" >
 </div>
 
 矩形方波的参数为幅度<font face="">E=1.0</font>，脉冲时长T=0.1。采样时间为1s，采样频率f<sub>s</sub> = 1000Hz。根据理论分析，其离散傅里叶变换为
 
-<div style="text-align: center;">
-  <img src="figure/2.png" alt="Your Image">
+<div align=center>
+  <img src="figure/2.png" >
 </div>
 
 当且仅当k = 10m (m = 01,2,3...)时，值不为零。从图像看出，0 ~ 100Hz的范围内有10个峰。初步判断运算正确。
 值得注意的是，每个峰周围的序列并非严格取0，而是有幅值的迅速衰减，这与DFT的理论分析有所出入。这将在第四节被分析。
 
 ### 2、加入噪音的单频信号
-<div style="text-align: center;">
+<div align=center>
   <img src="figure/3.png" alt="Your Image">
 </div>
 选取的纯音频率为2700Hz，加入幅度约为纯音幅度0.3倍的随机噪音，从频谱图上看，与预期结果大致相当。
 
 ### 3、录制的人声音频信号
-<div style="text-align: center;">
+<div align=center>
   <img src="figure/4.png" alt="Your Image">
 </div>
 
@@ -116,11 +116,11 @@ plot_fft方法实现了对单侧频谱的绘制。
 前面提到矩形方波频谱应该是10的整数倍时出现的陡峭的峰。如果信号足够理想，应该仅在f = 10m（m为整数）处观察到峰的出现，其余值均为0。然而实际上，无论如何优化采集方法，我们一定得不到这样的峰。我们小组认为，这是由于信号采样时长不是无穷大引起的。下面结合所学知识，对此展开分析。
 直观上说，对一个自然信号的观察（采集）时间愈长，我们能够断言其一定是某频率信号的可能性愈大。举生活中的例子，譬如对两盏闪烁的灯持续观察，一开始二者的亮灭在肉眼看来同步，但随着观察时间延长，二者频率之间细微的差异会被逐渐放大，直至可以断言异步。这就是延长时间能够增加频率分辨率的道理。
 将采样时间推至极限来说，对一个信号做无穷时长的傅里叶分析，我们一定能够清楚地区分开里面的所有频率的信号。然而实际的信号采样时长都是有限的，这就导致可能对于频率十分接近的两个谐波，我们分不清二者到底谁是这个自然信号的组成部分，抑或是二者都有。从频谱上说，有限时长的信号，其频谱中各个峰的变化一定是“缓变”的。
-<div style="text-align: center;">
+<div align=center>
   <img src="figure/4.png" alt="Your Image">
 </div>
 在延长抽样总时长至5s的基础上重复分析，得到下面的频谱图，其频谱的离散化进一步提高，频率分辨率亦得到提高。通过分析，我们可以断言矩形信号中确切地含有某些值的谐波成分：
-<div style="text-align: center;">
+<div align=center>
   <img src="figure/5.png" alt="Your Image">
 </div>
 可见提高抽样时长能够提高频率分辨率。
