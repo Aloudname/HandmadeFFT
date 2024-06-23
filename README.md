@@ -103,7 +103,7 @@ plot_fft方法实现了对单侧频谱的绘制。
 
 ### 3、录制的人声音频信号
 <div align=center>
-  <img src="figure/4.png" alt="Your Image">
+  <img src="figure/.png" alt="Your Image">
 </div>
 
 人谈话的声音频率在500 ~ 2000Hz之间。频谱图中主要的声音信号集中在这一区间，证明程序设计的正确性。
